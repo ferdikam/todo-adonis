@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: pgsqldb
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - dbdata:/var/lib/postgres
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+volumes:
+  dbdata:
